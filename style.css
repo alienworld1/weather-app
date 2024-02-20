@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url('./Images/background.jpg');
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    min-height: 90%;
+    flex: 1;
+}
+
+footer {
+    text-align: center;
+    padding: 12px;
+    background-color: #121212aa;
+    color: #fafafc;
+}
+
+footer > a,
+footer > a:active,
+footer > a:visited {
+    color: #fafafc;
+}
