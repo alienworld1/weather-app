@@ -14,6 +14,9 @@ body {
 main {
     min-height: 90%;
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer {
@@ -27,4 +30,13 @@ footer > a,
 footer > a:active,
 footer > a:visited {
     color: #fafafc;
+}
+
+.main-interface {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 10px;
 }
