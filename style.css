@@ -1,6 +1,11 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-body-width: 400px;
 }
 
 body {
@@ -34,16 +39,20 @@ footer > a:visited {
 }
 
 .main-interface {
-    width: 400px;
+    width: var(--main-body-width);
     height: 400px;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
     border-radius: 10px;
     padding: 10px;
+    margin-top: 12px;
 }
 
 section.search-bar {
-    margin: 12px 0;
+    display: flex;
+    width: var(--main-body-width);
+    justify-content: space-between;
+    gap: 12px;
 }
 
 section.search-bar > input[type="text"] {
@@ -55,4 +64,22 @@ section.search-bar > input[type="text"] {
     color: #f9fafb;
     font-family: inherit;
     font-size: 1.2rem;
+    flex: 1 1 auto;
+}
+
+section.search-bar > button {
+    background-color: #111827;
+    border: none;
+    border-radius: 100%;
+    width: 50px;
+    color: #f9fafb;
+    font-size: 1.3rem;
+}
+
+section.search-bar > button:hover {
+    background-color: #1f2937;
+}
+
+section.search-bar > button:active {
+    background-color: #030712;
 }
