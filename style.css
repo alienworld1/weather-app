@@ -83,3 +83,18 @@ section.search-bar > button:hover {
 section.search-bar > button:active {
     background-color: #030712;
 }
+
+h2.place-name {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.weather-display {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+    background-color: #737373aa;
+    border-radius: 10px;
+    padding: 12px;
+}
