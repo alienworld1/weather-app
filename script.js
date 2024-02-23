@@ -31,6 +31,11 @@ async function displayWeatherData(location) {
     weatherIcon.src = data.condition.icon;
     weatherIcon.alt = data.condition.text;
     conditionText.textContent = data.condition.text;
+
+    const temperatureText = document.getElementById('temperature');
+    const feelsLikeText = document.getElementById('feels-like');
+    temperatureText.textContent = `Temperature: ${data.temperature} °C`;
+    feelsLikeText.textContent = `Feels like ${data.feelsLike} °C`;
 }
 
 window.addEventListener('load', () => {

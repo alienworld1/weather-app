@@ -72,6 +72,7 @@ section.search-bar > button {
     width: 50px;
     color: #f9fafb;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
 section.search-bar > button:hover {
@@ -98,6 +99,18 @@ h2.place-name {
     background-color: rgba(51, 65, 85, 0.3);
     backdrop-filter: blur(5px);
     border-radius: 10px;
-    color: #020617;
+    color: #e2e8f0;
     padding: 16px;
+    cursor: default;
+}
+
+.temperature-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+}
+
+.temperature-display > h3 {
+    font-size: 1.8rem;
 }
