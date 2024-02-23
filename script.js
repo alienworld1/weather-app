@@ -22,6 +22,15 @@ async function filterWeatherData(location) {
 async function displayWeatherData(location) {
     const data = await filterWeatherData(location);
     console.log(data);
+
+    const placeHeader = document.querySelector('.place-name');
+    placeHeader.textContent = location;
+
+    const weatherIcon = document.getElementById('icon');
+    const conditionText = document.getElementById('condition-display');
+    weatherIcon.src = data.condition.icon;
+    weatherIcon.alt = data.condition.text;
+    conditionText.textContent = data.condition.text;
 }
 
 window.addEventListener('load', () => {
