@@ -7,11 +7,16 @@ async function fetchWeatherData(location) {
 
 async function filterWeatherData(location) {
     const weather = await fetchWeatherData(location);
-    const requiredData = {
+    return {
         condition: weather.condition,
         temperature: weather.temp_c,
+        rainfall: weather.precip_mm,
+        windSpeed: weather.wind_kph,
+        humidity: weather.humidity,
+        visibility: weather.vis_km,
+        feelsLike: weather.feelslike_c,
+        cloudCover: weather.cloud,
     };
-    return requiredData;
 }
 
 async function displayWeatherData(location) {
@@ -20,7 +25,7 @@ async function displayWeatherData(location) {
 }
 
 window.addEventListener('load', () => {
-    displayWeatherData('London');
+    displayWeatherData('Chennai');
 });
 
 const searchButton = document.getElementById('search-btn');
