@@ -9,7 +9,7 @@ async function filterWeatherData(location) {
     const weather = await fetchWeatherData(location);
     const requiredData = {
         condition: weather.condition,
-        temp: weather.temp_c,
+        temperature: weather.temp_c,
     };
     return requiredData;
 }

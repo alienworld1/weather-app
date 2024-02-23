@@ -17,6 +17,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 12px;
 }
 
 footer {
@@ -39,4 +40,19 @@ footer > a:visited {
     backdrop-filter: blur(5px);
     border-radius: 10px;
     padding: 10px;
+}
+
+section.search-bar {
+    margin: 12px 0;
+}
+
+section.search-bar > input[type="text"] {
+    padding: 12px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: #111827;
+    color: #f9fafb;
+    font-family: inherit;
+    font-size: 1.2rem;
 }
