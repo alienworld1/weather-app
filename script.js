@@ -1,8 +1,73 @@
-async function fetchWeatherData(location) {
-    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=7af347fc3b4e4c5fbfb203652242202&q=${location}`)
+class loadingDialog {
 
-    const data = await response.json();
-    return data.current;
+    static isOpen = false;
+
+    static open() {
+
+        if (loadingDialog.isOpen) return;
+        const main = document.querySelector('.main-body');
+        
+        const loadingScreen = document.createElement('div');
+        loadingScreen.classList.add('loading');
+        loadingScreen.textContent = 'Fetching weather data...';
+
+        loadingDialog.isOpen = true;
+        main.appendChild(loadingScreen);
+    }
+
+    static close() {
+        const main = document.querySelector('.main-body');
+        const loadingScreen = document.querySelector('.loading');
+
+        loadingDialog.isOpen = false;
+        main.removeChild(loadingScreen);
+    }
+}
+
+class ErrorDialog {
+
+    static isOpen = false;
+
+    static open(errorMessage) {
+
+        if (ErrorDialog.isOpen) ErrorDialog.close();
+
+        const main = document.querySelector('.main-body');
+
+        const errorDialog = document.createElement('div');
+        errorDialog.classList.add('error');
+        errorDialog.textContent = errorMessage;
+
+        ErrorDialog.isOpen = true;
+
+        main.appendChild(errorDialog);
+    }
+
+    static close() {
+        const main = document.querySelector('.main-body');
+        const errorDialog = document.querySelector('.error');
+
+        ErrorDialog.isOpen = false;
+        main.removeChild(errorDialog);
+    }
+}
+
+async function fetchWeatherData(location) {
+    loadingDialog.open();
+    try {
+        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=7af347fc3b4e4c5fbfb203652242202&q=${location}`);
+
+        if (response.status === 400) {
+            throw new Error('Unable to locate the place.');
+        }
+
+        const data = await response.json();
+        return data.current;
+
+    } catch (error) {
+        loadingDialog.close();
+        ErrorDialog.open(error);
+    }
 }
 
 async function filterWeatherData(location) {
@@ -21,7 +86,11 @@ async function filterWeatherData(location) {
 
 async function displayWeatherData(location) {
     const data = await filterWeatherData(location);
-    console.log(data);
+    loadingDialog.close();
+
+    if (ErrorDialog.isOpen) {
+        ErrorDialog.close();
+    }
 
     const placeHeader = document.querySelector('.place-name');
     placeHeader.textContent = location;
@@ -50,7 +119,8 @@ async function displayWeatherData(location) {
     visibility.textContent = `Visibility: ${data.visibility} km`;
 
     const cloud = document.getElementById('cloud');
-    cloud.textContent = `Cloud Cover: ${data.cloudCover}%`;
+    cloud.textContent = `Cloud Cover: ${data.cloudCover}%`;    
+
 }
 
 window.addEventListener('load', () => {
