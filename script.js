@@ -36,6 +36,21 @@ async function displayWeatherData(location) {
     const feelsLikeText = document.getElementById('feels-like');
     temperatureText.textContent = `Temperature: ${data.temperature} °C`;
     feelsLikeText.textContent = `Feels like ${data.feelsLike} °C`;
+
+    const rainfall = document.getElementById('rainfall');
+    rainfall.textContent = `Rainfall: ${data.rainfall} mm`;
+
+    const windSpeed = document.getElementById('wind-speed');
+    windSpeed.textContent = `Wind Speed: ${data.windSpeed} kph`;
+
+    const humidity = document.getElementById('humidity');
+    humidity.textContent = `Humidity: ${data.humidity}%`;
+
+    const visibility = document.getElementById('visibility');
+    visibility.textContent = `Visibility: ${data.visibility} km`;
+
+    const cloud = document.getElementById('cloud');
+    cloud.textContent = `Cloud Cover: ${data.cloudCover}%`;
 }
 
 window.addEventListener('load', () => {

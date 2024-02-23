@@ -43,6 +43,7 @@ footer > a:visited {
     margin-top: 12px;
     display: grid;
     grid-template-columns: auto 2fr;
+    grid-template-rows: auto 1fr;
     gap: 8px;
 }
 
@@ -112,5 +113,10 @@ h2.place-name {
 }
 
 .temperature-display > h3 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+}
+
+.other-info {
+    grid-column: 1 / -1;
+    font-size: 1.5rem;
 }
